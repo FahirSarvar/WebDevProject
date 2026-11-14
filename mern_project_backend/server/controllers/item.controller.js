@@ -15,7 +15,7 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-    const items = await Item.find();
+    const items = await Item.find({ owner: req.auth._id });
     res.json(items);
   } catch (err) {
     return res.status(400).json({ error: errorHandler.getErrorMessage(err) });
