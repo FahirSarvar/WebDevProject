@@ -13,9 +13,13 @@ Setup
    (your MongoDB Atlas connection string with database name in it,
    and a JWT secret). Never commit `.env`.
 3. Run the server:
+    In terminal: `
+   cd to client
    npm run dev
    
-   You should see `Server started on port 3000.` and`Connected to the database!`.
+   You should see `Server started on port 3000.` and `Connected to the database!`.
+4. Connect through http://localhost:3000
+   or whatever URL is in the terminal
 
 Folder structure (MVC)
 
