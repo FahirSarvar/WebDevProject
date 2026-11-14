@@ -5,7 +5,7 @@ import cors from "cors";
 import helmet from "helmet";
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
-import itemRoutes from "./routes/item.routes.js";
+import taskRoutes from "./routes/task.routes.js";
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(cors());
 // routes
 app.use("/", userRoutes);
 app.use("/", authRoutes);
-app.use("/", itemRoutes);
+app.use("/", taskRoutes);
 
 // auth error handling for express-jwt
 app.use((err, req, res, next) => {

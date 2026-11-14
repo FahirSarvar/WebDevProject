@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 
-// "Item" is a placeholder: rename it and change the fields to match
-// your project (Survey, Incident, Book, Appointment, ...).
-const ItemSchema = new mongoose.Schema({
+const TaskSchema = new mongoose.Schema({
   title: {
     type: String,
     trim: true,
@@ -12,9 +10,18 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  dueDate: {
+    type: Date,
+  },
+  priority: {
+    type: String,
+    enum: ["Low", "Medium", "High"],
+    default: "Medium",
+  },
   status: {
     type: String,
-    default: "open",
+    enum: ["pending", "completed"],
+    default: "pending",
   },
   owner: {
     type: mongoose.Schema.ObjectId,
@@ -24,4 +31,4 @@ const ItemSchema = new mongoose.Schema({
   updated: { type: Date, default: Date.now },
 });
 
-export default mongoose.model("Item", ItemSchema);
+export default mongoose.model("Task", TaskSchema);

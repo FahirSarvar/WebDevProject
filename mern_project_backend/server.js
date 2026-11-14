@@ -1,4 +1,4 @@
-import "dotenv/config"; // must be first so .env is loaded before config.js is read
+import "dotenv/config"; 
 import config from "./config/config.js";
 import app from "./server/express.js";
 import mongoose from "mongoose";

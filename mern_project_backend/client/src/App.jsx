@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
-import Items from "./items.jsx";
-import Signup from "./signup.jsx";
-import Signin from "./signin.jsx";
-import { signout } from "./api.js";
+import Tasks from "./tasks.jsx";
+import Signup from "./Signup.jsx";
+import Signin from "./Signin.jsx";
 import { getAuth, clearAuth } from "./auth.js";
+import { signout } from "./api.js";
 
 function Menu() {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ function Menu() {
 
   return (
     <nav>
-      <Link to="/">Items</Link>{" | "}
+      <Link to="/">Tasks</Link>{" | "}
       {!auth && (
         <>
           <Link to="/signup">Sign up</Link>{" | "}
@@ -32,10 +32,11 @@ function Menu() {
 export default function App() {
   return (
     <BrowserRouter>
+      <h1>WebStars Task Management System</h1>
       <Menu />
       <hr />
       <Routes>
-        <Route path="/" element={<Items />} />
+        <Route path="/" element={<Tasks />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
       </Routes>
