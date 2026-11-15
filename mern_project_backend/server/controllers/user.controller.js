@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import Task from "../models/task.model.js";
 import extend from "lodash/extend.js";
 import errorHandler from "../helpers/dbErrorHandler.js";
 
@@ -53,6 +54,8 @@ const update = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
+    const userId = req.profile._id;
+    await Task.deleteMany({ owner: userId });
     const deletedUser = await req.profile.deleteOne();
     deletedUser.hashed_password = undefined;
     deletedUser.salt = undefined;
